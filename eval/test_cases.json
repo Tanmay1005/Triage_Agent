@@ -1,0 +1,679 @@
+[
+    {
+        "id": "eval-001",
+        "input": "The login button on the checkout page is unresponsive on Safari. Tried on Safari 17.2, macOS Sonoma. Chrome works fine.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "frontend",
+            "labels_should_contain": ["safari", "checkout"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-002",
+        "input": "it's broken",
+        "expected": {
+            "decision": "needs_clarification",
+            "is_valid": false
+        },
+        "category": "vague_input"
+    },
+    {
+        "id": "eval-003",
+        "input": "Stripe webhook timing out for big transactions above 10 grand",
+        "expected": {
+            "decision": "duplicate",
+            "is_duplicate": true,
+            "similar_to": "TICK-002"
+        },
+        "category": "duplicate"
+    },
+    {
+        "id": "eval-004",
+        "input": "Would be nice if the dashboard had a dark mode option",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "feature_request",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "feature_request"
+    },
+    {
+        "id": "eval-005",
+        "input": "URGENT: All user passwords appear to be exposed in plaintext in the API response when hitting /api/v2/users. Discovered during routine security audit.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "critical",
+            "priority": "P0",
+            "issue_type": "incident",
+            "team": "security",
+            "is_valid": true
+        },
+        "category": "security_incident"
+    },
+    {
+        "id": "eval-006",
+        "input": "help",
+        "expected": {
+            "decision": "needs_clarification",
+            "is_valid": false
+        },
+        "category": "vague_input"
+    },
+    {
+        "id": "eval-007",
+        "input": "not working",
+        "expected": {
+            "decision": "needs_clarification",
+            "is_valid": false
+        },
+        "category": "vague_input"
+    },
+    {
+        "id": "eval-008",
+        "input": "The app crashes sometimes",
+        "expected": {
+            "decision": "needs_clarification",
+            "is_valid": false
+        },
+        "category": "vague_input"
+    },
+    {
+        "id": "eval-009",
+        "input": "bug",
+        "expected": {
+            "decision": "needs_clarification",
+            "is_valid": false
+        },
+        "category": "vague_input"
+    },
+    {
+        "id": "eval-010",
+        "input": "The subscription cancellation page doesn't actually cancel the subscription. Users are still being charged after clicking cancel. I've confirmed this with 3 different accounts.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "critical",
+            "issue_type": "bug",
+            "team": "payments",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-011",
+        "input": "The CSS on the product listing page is completely broken on mobile. Product cards are overlapping and text is cut off. iPhone SE screen size.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "frontend",
+            "labels_should_contain": ["mobile"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-012",
+        "input": "We need to add support for exporting reports to PDF format. Currently only CSV is available.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "feature_request",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "feature_request"
+    },
+    {
+        "id": "eval-013",
+        "input": "The API rate limiter is blocking legitimate users. They haven't exceeded their quota but getting 429 errors. About 15% of API consumers are affected.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "platform",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-014",
+        "input": "Our database connection pool keeps maxing out between 2-4 PM UTC causing 503 errors for users. Pool size is 20 connections.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "platform",
+            "labels_should_contain": ["database"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-015",
+        "input": "Found a stored XSS vulnerability in the user profile bio field. Script tags execute when viewing profiles.",
+        "expected": {
+            "decision": "duplicate",
+            "is_duplicate": true,
+            "similar_to": "TICK-005"
+        },
+        "category": "duplicate"
+    },
+    {
+        "id": "eval-016",
+        "input": "Google Workspace SSO users are stuck in a redirect loop when signing in. Works with Okta though.",
+        "expected": {
+            "decision": "duplicate",
+            "is_duplicate": true,
+            "similar_to": "TICK-004"
+        },
+        "category": "duplicate"
+    },
+    {
+        "id": "eval-017",
+        "input": "The analytics CSV download doesn't include column headers. Data rows are there but no headers.",
+        "expected": {
+            "decision": "duplicate",
+            "is_duplicate": true,
+            "similar_to": "TICK-003"
+        },
+        "category": "duplicate"
+    },
+    {
+        "id": "eval-018",
+        "input": "Can we add a way to filter the dashboard by date range? Right now it only shows the last 7 days.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "feature_request",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "feature_request"
+    },
+    {
+        "id": "eval-019",
+        "input": "The real-time websocket connection for the analytics dashboard disconnects every 5 minutes and needs a refresh.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "data",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-020",
+        "input": "CRITICAL: Our entire payment system is down. No transactions are processing. All customers affected.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "critical",
+            "priority": "P0",
+            "issue_type": "incident",
+            "team": "payments",
+            "is_valid": true
+        },
+        "category": "security_incident"
+    },
+    {
+        "id": "eval-021",
+        "input": "The checkout page coupon field accepts expired coupons and applies discounts that shouldn't be valid.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "payments",
+            "labels_should_contain": ["checkout"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-022",
+        "input": "Image upload on profile page fails silently for files over 5MB. No error message is shown.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "bug",
+            "team": "frontend",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-023",
+        "input": "Password reset emails contain tokens that expire before the email arrives. Token TTL is 5 minutes but delivery takes 10 minutes.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "platform",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-024",
+        "input": "Screen reader users cannot navigate our dropdown menus. Missing ARIA attributes. Fails WCAG 2.1 AA.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "frontend",
+            "labels_should_contain": ["accessibility"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-025",
+        "input": "The nightly ETL pipeline is silently dropping about 2% of records that have null timestamps.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "data",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-026",
+        "input": "Refunds processed through the admin panel stay stuck in 'pending' state. Stripe shows them as completed.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "payments",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-027",
+        "input": "Can we integrate with Slack to send notifications when tickets are assigned to a team?",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "feature_request",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "feature_request"
+    },
+    {
+        "id": "eval-028",
+        "input": "SECURITY ALERT: CSRF tokens are not being validated on the account settings update endpoint. Forged requests can change user email.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "critical",
+            "issue_type": "incident",
+            "team": "security",
+            "is_valid": true
+        },
+        "category": "security_incident"
+    },
+    {
+        "id": "eval-029",
+        "input": "The login page has a brief flash of unstyled content before CSS loads. Minor visual issue.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "bug",
+            "team": "frontend",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-030",
+        "input": "Our CloudWatch alarms keep firing false positives for healthy EC2 instances. Alert threshold may be too sensitive.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "bug",
+            "team": "platform",
+            "labels_should_contain": ["infrastructure"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-031",
+        "input": "The scheduled report emails are being sent twice. Looks like the cron job runs on both server instances.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "data",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-032",
+        "input": "Billing invoices for Japanese Yen show decimal places and Euro invoices are missing the currency symbol.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "payments",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-033",
+        "input": "The /api/import/bulk endpoint has no file size limit. Someone uploaded a 10GB file and crashed the server.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "platform",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-034",
+        "input": "User encryption keys for integrations are stored as plaintext in the database. Found during security review.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "critical",
+            "issue_type": "incident",
+            "team": "security",
+            "is_valid": true
+        },
+        "category": "security_incident"
+    },
+    {
+        "id": "eval-035",
+        "input": "It would be helpful to have keyboard shortcuts for navigating between dashboard sections.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "feature_request",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "feature_request"
+    },
+    {
+        "id": "eval-036",
+        "input": "The metrics aggregation cron job has a memory leak. Uses 8GB+ after 24 hours and gets OOM killed.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "data",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-037",
+        "input": "Pressing the browser back button during checkout empties the cart and loses payment info.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "frontend",
+            "labels_should_contain": ["checkout"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-038",
+        "input": "The dark mode preference resets every time I close the browser. Should persist.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "bug",
+            "team": "frontend",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-039",
+        "input": "We should improve the onboarding flow to include a guided tour for new users.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "improvement",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "feature_request"
+    },
+    {
+        "id": "eval-040",
+        "input": "PII data (emails, phone numbers) visible in plaintext in application error logs. 3 months of logs affected.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "critical",
+            "issue_type": "incident",
+            "team": "security",
+            "is_valid": true
+        },
+        "category": "security_incident"
+    },
+    {
+        "id": "eval-041",
+        "input": "Chrome autofill on the signup page bypasses client-side validation. Invalid emails get submitted.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "frontend",
+            "labels_should_contain": ["chrome"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-042",
+        "input": "The API documentation has several broken code examples that return 404 errors when tested.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "bug",
+            "team": "platform",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-043",
+        "input": "The partner integration domain partner.example.com needs to be added to CORS allowlist. Their API calls are blocked.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "task",
+            "team": "platform",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-044",
+        "input": "Mobile Android app crashes on Android 12 when tapping push notifications. NullPointerException in NotificationHandler.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "frontend",
+            "labels_should_contain": ["mobile"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-045",
+        "input": "Tax calculations for Canadian provinces are wrong. Ontario shows 5% instead of 13% HST on receipts.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "payments",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-046",
+        "input": "Dashboard pie chart colors are indistinguishable for colorblind users. Red-green color scheme.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "bug",
+            "team": "frontend",
+            "labels_should_contain": ["accessibility"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-047",
+        "input": "SSO session tokens are not invalidated on logout. Old tokens can still access protected resources.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "security",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-048",
+        "input": "The user search API response time went from 200ms to 2.5s after the database migration. Missing index suspected.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "platform",
+            "labels_should_contain": ["performance"],
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-049",
+        "input": "Stripe refund webhook handler doesn't retry on failure. Failed events are dropped permanently.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "payments",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-050",
+        "input": "fix it",
+        "expected": {
+            "decision": "needs_clarification",
+            "is_valid": false
+        },
+        "category": "vague_input"
+    },
+    {
+        "id": "eval-051",
+        "input": "The Stripe webhook handler sometimes processes payment intent events before customer creation events, causing orphaned payments.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "high",
+            "issue_type": "bug",
+            "team": "payments",
+            "is_valid": true
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-052",
+        "input": "Some monthly subscribers got charged twice on renewal. About 50 accounts affected this billing cycle.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "critical",
+            "issue_type": "bug",
+            "team": "payments",
+            "is_valid": true
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-053",
+        "input": "Dashboard analytics take 30+ seconds to load when viewing 90-day range. Looks like a full table scan.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "bug",
+            "team": "data",
+            "is_valid": true
+        },
+        "category": "clear_bug_report"
+    },
+    {
+        "id": "eval-054",
+        "input": "Please add two-factor authentication support for admin accounts. This is a compliance requirement.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "medium",
+            "issue_type": "feature_request",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "feature_request"
+    },
+    {
+        "id": "eval-055",
+        "input": "The active users metric on the dashboard sometimes shows negative numbers. Calculation error during user deletion.",
+        "expected": {
+            "decision": "create_ticket",
+            "severity": "low",
+            "issue_type": "bug",
+            "team": "data",
+            "is_valid": true,
+            "is_duplicate": false
+        },
+        "category": "clear_bug_report"
+    }
+]
