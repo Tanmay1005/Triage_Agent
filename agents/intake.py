@@ -27,16 +27,12 @@ def intake_agent(state: TriageState) -> dict:
     raw = state.get("normalized_text") or state["raw_input"]
 
     try:
-        response = client.messages.create(
+        response = client.models.generate_content(
             model=MODEL,
-            max_tokens=1024,
-            system=SYSTEM_PROMPT,
-            messages=[
-                {"role": "user", "content": f"Parse this bug report:\n\n{raw}"}
-            ],
+            contents=f"{SYSTEM_PROMPT}\n\nParse this bug report:\n\n{raw}",
         )
 
-        content = _strip_code_fences(response.content[0].text)
+        content = _strip_code_fences(response.text)
         parsed = ParsedTicket.model_validate_json(content)
 
         decision = "needs_clarification" if not parsed.is_valid else None

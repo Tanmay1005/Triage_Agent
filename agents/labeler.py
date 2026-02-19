@@ -35,14 +35,12 @@ def labeler_agent(state: TriageState) -> dict:
         ticket_text += f"\nEnvironment: {parsed.environment}"
 
     try:
-        response = client.messages.create(
+        response = client.models.generate_content(
             model=MODEL,
-            max_tokens=512,
-            system=LABELER_PROMPT,
-            messages=[{"role": "user", "content": ticket_text}],
+            contents=f"{LABELER_PROMPT}\n\n{ticket_text}",
         )
 
-        content = _strip_code_fences(response.content[0].text)
+        content = _strip_code_fences(response.text)
         labeled = LabeledTicket.model_validate_json(content)
 
         return {

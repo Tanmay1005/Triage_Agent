@@ -51,7 +51,7 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 # Edit .env with your keys:
-#   ANTHROPIC_API_KEY=sk-ant-...
+#   GOOGLE_API_KEY=sk-ant-...
 #   JIRA_URL=https://your-instance.atlassian.net  (optional)
 #   JIRA_EMAIL=you@email.com                       (optional)
 #   JIRA_API_TOKEN=...                              (optional)
