@@ -1,0 +1,27 @@
+{
+    "payments": {
+        "lead": "alice_chen",
+        "skills": ["payments", "checkout", "billing", "subscriptions", "stripe", "refunds"],
+        "capacity": 5
+    },
+    "platform": {
+        "lead": "bob_kumar",
+        "skills": ["auth", "login", "sso", "api", "performance", "infrastructure", "database"],
+        "capacity": 3
+    },
+    "frontend": {
+        "lead": "carol_zhang",
+        "skills": ["ui", "css", "responsive", "accessibility", "browser", "safari", "chrome", "mobile"],
+        "capacity": 7
+    },
+    "data": {
+        "lead": "dave_patel",
+        "skills": ["analytics", "reports", "dashboard", "export", "csv", "data", "metrics"],
+        "capacity": 4
+    },
+    "security": {
+        "lead": "eve_johnson",
+        "skills": ["security", "vulnerability", "xss", "csrf", "injection", "encryption", "pii"],
+        "capacity": 2
+    }
+}

@@ -1,0 +1,402 @@
+[
+    {
+        "id": "TICK-001",
+        "title": "Login button unresponsive on Safari - Checkout page",
+        "description": "Users on Safari 17+ cannot click the login button on the checkout page. Button appears but doesn't register clicks. Works fine on Chrome and Firefox.",
+        "component": "checkout",
+        "severity": "high",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-002",
+        "title": "Payment processing timeout for amounts over $10,000",
+        "description": "Stripe webhook times out when processing transactions above $10k. Results in successful charge but no order confirmation email. Affects approximately 2% of enterprise customers.",
+        "component": "payments",
+        "severity": "critical",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-003",
+        "title": "Dashboard export CSV missing header row",
+        "description": "When exporting analytics dashboard to CSV, the header row is missing. Data rows are present but column names are not included. Started after last deploy.",
+        "component": "analytics",
+        "severity": "medium",
+        "team": "data"
+    },
+    {
+        "id": "TICK-004",
+        "title": "SSO redirect loop for Google Workspace users",
+        "description": "Google Workspace SSO users get stuck in an infinite redirect loop when trying to sign in. Clearing cookies fixes temporarily but issue returns. Okta SSO works fine.",
+        "component": "auth",
+        "severity": "high",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-005",
+        "title": "XSS vulnerability in user profile bio field",
+        "description": "Stored XSS possible through the user profile biography field. Script tags are not sanitized and execute when other users view the profile. Discovered during internal pen test.",
+        "component": "security",
+        "severity": "critical",
+        "team": "security"
+    },
+    {
+        "id": "TICK-006",
+        "title": "Subscription renewal charge applied twice",
+        "description": "Some monthly subscribers are being charged twice on their renewal date. Stripe dashboard shows duplicate charges. Approximately 50 users affected in the last billing cycle.",
+        "component": "billing",
+        "severity": "critical",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-007",
+        "title": "Mobile responsive layout broken on product listing page",
+        "description": "Product cards overlap and text is cut off on screens smaller than 375px width. Images stretch beyond their containers. Affects iPhone SE and older Android devices.",
+        "component": "ui",
+        "severity": "medium",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-008",
+        "title": "API rate limiter rejecting valid requests under threshold",
+        "description": "The API rate limiter is incorrectly counting requests and blocking users who haven't exceeded their quota. Logs show the counter resets inconsistently. Affects about 15% of API consumers.",
+        "component": "api",
+        "severity": "high",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-009",
+        "title": "Analytics dashboard loading time exceeds 30 seconds",
+        "description": "The main analytics dashboard takes 30-45 seconds to load when date range is set to last 90 days. Query appears to do a full table scan. Smaller date ranges load normally.",
+        "component": "analytics",
+        "severity": "medium",
+        "team": "data"
+    },
+    {
+        "id": "TICK-010",
+        "title": "CSRF token validation failing on checkout form submission",
+        "description": "Checkout form submissions intermittently fail with CSRF token mismatch error. Appears to happen when users have multiple tabs open. Error rate is about 3% of submissions.",
+        "component": "security",
+        "severity": "high",
+        "team": "security"
+    },
+    {
+        "id": "TICK-011",
+        "title": "Password reset email contains expired token",
+        "description": "Password reset tokens expire before the email arrives. Token TTL is set to 5 minutes but email delivery takes 8-10 minutes through our provider. Users unable to reset passwords.",
+        "component": "auth",
+        "severity": "high",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-012",
+        "title": "Checkout page price shows $0.00 for subscription plans",
+        "description": "After selecting a subscription plan, the checkout page displays $0.00 instead of the actual price. The correct amount is still charged. Likely a frontend rendering issue.",
+        "component": "checkout",
+        "severity": "high",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-013",
+        "title": "Data export job fails silently for reports over 100k rows",
+        "description": "When exporting reports with more than 100,000 rows, the export job fails without any error message to the user. The job appears to hang indefinitely. Smaller exports work fine.",
+        "component": "export",
+        "severity": "medium",
+        "team": "data"
+    },
+    {
+        "id": "TICK-014",
+        "title": "Refund processing stuck in pending state",
+        "description": "Refunds initiated through the admin panel stay in 'pending' state indefinitely. Stripe shows the refund was processed successfully but our system doesn't update the status.",
+        "component": "refunds",
+        "severity": "high",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-015",
+        "title": "Screen reader cannot navigate dropdown menus",
+        "description": "ARIA attributes missing on dropdown navigation menus. Screen readers skip over the dropdowns entirely. Fails WCAG 2.1 AA compliance for keyboard navigation.",
+        "component": "accessibility",
+        "severity": "medium",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-016",
+        "title": "SQL injection possible in search endpoint query parameter",
+        "description": "The /api/v2/search endpoint does not properly sanitize the 'q' parameter. Union-based SQL injection confirmed during penetration testing. Can extract user table data.",
+        "component": "security",
+        "severity": "critical",
+        "team": "security"
+    },
+    {
+        "id": "TICK-017",
+        "title": "Database connection pool exhaustion during peak hours",
+        "description": "Between 2-4 PM UTC, the database connection pool reaches maximum capacity causing 503 errors. Pool size is 20 connections. Average query time increases from 50ms to 3s.",
+        "component": "database",
+        "severity": "high",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-018",
+        "title": "Stripe webhook events processed out of order",
+        "description": "Payment intent events are sometimes processed before the customer creation event, causing orphaned payments. Race condition in the webhook handler queue.",
+        "component": "payments",
+        "severity": "high",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-019",
+        "title": "Dashboard metrics show negative values for user count",
+        "description": "The active users metric on the analytics dashboard occasionally shows negative numbers. Appears to be a calculation error when users are deleted mid-aggregation cycle.",
+        "component": "metrics",
+        "severity": "low",
+        "team": "data"
+    },
+    {
+        "id": "TICK-020",
+        "title": "Chrome autofill breaks form validation on signup page",
+        "description": "When Chrome autofills the signup form, the client-side validation doesn't trigger. Users can submit forms with invalid email formats. Chrome 120+ on macOS and Windows.",
+        "component": "ui",
+        "severity": "medium",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-021",
+        "title": "API documentation examples return 404 errors",
+        "description": "Several code examples in the API documentation reference endpoints that have been moved or renamed. Developers following the docs get 404 responses.",
+        "component": "api",
+        "severity": "low",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-022",
+        "title": "PII data visible in application error logs",
+        "description": "User email addresses and phone numbers are being written to application error logs in plaintext. Discovered during log audit. Approximately 3 months of logs affected.",
+        "component": "pii",
+        "severity": "critical",
+        "team": "security"
+    },
+    {
+        "id": "TICK-023",
+        "title": "Billing invoice PDF generation fails for international currencies",
+        "description": "PDF invoices show incorrect currency symbols and formatting for non-USD currencies. Japanese Yen shows decimal places, Euro symbol is missing. Affects all international customers.",
+        "component": "billing",
+        "severity": "medium",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-024",
+        "title": "Dark mode toggle does not persist across sessions",
+        "description": "When users enable dark mode in settings, the preference is lost after closing the browser. The setting is stored in sessionStorage instead of localStorage.",
+        "component": "ui",
+        "severity": "low",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-025",
+        "title": "Real-time analytics websocket disconnects every 5 minutes",
+        "description": "The websocket connection for the real-time analytics dashboard drops every 5 minutes and requires a page refresh to reconnect. No automatic reconnection logic.",
+        "component": "analytics",
+        "severity": "medium",
+        "team": "data"
+    },
+    {
+        "id": "TICK-026",
+        "title": "SSO session token not invalidated on logout",
+        "description": "After logging out via SSO, the session token remains valid. Users can use the old token to access protected resources. Token should be revoked on the identity provider side.",
+        "component": "auth",
+        "severity": "high",
+        "team": "security"
+    },
+    {
+        "id": "TICK-027",
+        "title": "Checkout coupon code field accepts expired coupons",
+        "description": "The checkout page does not validate coupon expiration dates. Expired coupons are accepted and the discount is applied. No server-side validation either.",
+        "component": "checkout",
+        "severity": "medium",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-028",
+        "title": "Performance regression in user search API after migration",
+        "description": "The /api/users/search endpoint response time increased from 200ms to 2.5s after the database migration last week. Missing index on the new user_profiles table.",
+        "component": "performance",
+        "severity": "high",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-029",
+        "title": "Report scheduler sends duplicate email notifications",
+        "description": "Scheduled report emails are being sent twice. The cron job appears to run twice due to deployment across two server instances without proper locking.",
+        "component": "reports",
+        "severity": "medium",
+        "team": "data"
+    },
+    {
+        "id": "TICK-030",
+        "title": "Image upload on profile page fails for files over 5MB",
+        "description": "Profile photo upload silently fails for images larger than 5MB. No error message is shown to the user. The upload spinner continues indefinitely. Need to add file size validation.",
+        "component": "ui",
+        "severity": "low",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-031",
+        "title": "Stripe subscription cancellation does not stop recurring charges",
+        "description": "When users cancel their subscription through our UI, the cancellation is not sent to Stripe. Users continue to be charged in the next billing cycle. Critical revenue impact.",
+        "component": "subscriptions",
+        "severity": "critical",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-032",
+        "title": "API response missing CORS headers for partner domain",
+        "description": "The new partner integration domain partner.example.com is not in the CORS allowlist. API calls from their frontend are blocked by the browser. Need to add to the config.",
+        "component": "api",
+        "severity": "medium",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-033",
+        "title": "Data pipeline ETL job skips records with null timestamps",
+        "description": "The nightly ETL job silently drops records where the created_at field is null. Approximately 2% of records are affected. Data warehouse is missing these entries.",
+        "component": "data",
+        "severity": "medium",
+        "team": "data"
+    },
+    {
+        "id": "TICK-034",
+        "title": "Cross-site request forgery on account settings page",
+        "description": "The account settings update endpoint does not verify CSRF tokens. An attacker can change user email and notification preferences through a forged request.",
+        "component": "csrf",
+        "severity": "critical",
+        "team": "security"
+    },
+    {
+        "id": "TICK-035",
+        "title": "Mobile app crashes on Android 12 when opening notifications",
+        "description": "The Android app crashes immediately when tapping on a push notification on Android 12 devices. Stack trace shows NullPointerException in NotificationHandler. iOS is unaffected.",
+        "component": "mobile",
+        "severity": "high",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-036",
+        "title": "Payment receipt shows wrong tax calculation for Canadian provinces",
+        "description": "HST/GST/PST calculations are incorrect for Canadian provinces. Ontario shows 5% instead of 13% HST. Affects all Canadian customer receipts.",
+        "component": "billing",
+        "severity": "high",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-037",
+        "title": "Login page CSS loads after content causing flash of unstyled text",
+        "description": "The login page shows a brief flash of unstyled content (FOUC) for about 500ms on initial load. CSS stylesheet is loaded asynchronously instead of in the head.",
+        "component": "css",
+        "severity": "low",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-038",
+        "title": "Infrastructure monitoring alerts firing for healthy instances",
+        "description": "CloudWatch alarms are triggering false positive alerts for EC2 instances that show healthy in the health check dashboard. Alert threshold configuration may be too sensitive.",
+        "component": "infrastructure",
+        "severity": "low",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-039",
+        "title": "User encryption keys stored in plaintext in database",
+        "description": "API encryption keys for user integrations are stored as plaintext strings in the integrations table. Should be encrypted at rest using KMS. Found during security review.",
+        "component": "encryption",
+        "severity": "critical",
+        "team": "security"
+    },
+    {
+        "id": "TICK-040",
+        "title": "Dashboard pie chart colors not distinguishable for colorblind users",
+        "description": "The analytics dashboard pie chart uses red and green colors that are indistinguishable for users with red-green color blindness. Need to use a colorblind-safe palette.",
+        "component": "accessibility",
+        "severity": "low",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-041",
+        "title": "Bulk data import API endpoint has no file size limit",
+        "description": "The /api/import/bulk endpoint accepts arbitrarily large files with no size limit. A 10GB upload was observed causing the server to run out of memory and crash.",
+        "component": "api",
+        "severity": "high",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-042",
+        "title": "Checkout flow breaks when browser back button is pressed",
+        "description": "Pressing the browser back button during checkout step 3 of 4 causes the cart to empty and payment information to be lost. Users must restart the entire checkout process.",
+        "component": "checkout",
+        "severity": "medium",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-043",
+        "title": "Metrics aggregation cron job has memory leak",
+        "description": "The hourly metrics aggregation cron job consumes increasing amounts of memory with each run. After 24 hours, it uses 8GB+ RAM and gets OOM killed. Restarting the worker fixes it temporarily.",
+        "component": "metrics",
+        "severity": "high",
+        "team": "data"
+    },
+    {
+        "id": "TICK-044",
+        "title": "Refund webhook handler does not retry on failure",
+        "description": "If the Stripe refund webhook handler fails (e.g., database timeout), the event is dropped and never retried. Need to implement a dead letter queue for failed webhook events.",
+        "component": "refunds",
+        "severity": "medium",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-045",
+        "title": "Safari users see login button that does nothing on checkout page",
+        "description": "On Safari browsers, the checkout page login button is visible but completely non-functional. Clicking it does nothing. Possibly related to event handler attachment timing.",
+        "component": "checkout",
+        "severity": "high",
+        "team": "frontend"
+    },
+    {
+        "id": "TICK-046",
+        "title": "Large Stripe transactions over 10000 dollars timing out",
+        "description": "High-value Stripe payments exceeding $10,000 are timing out during processing. The charge goes through on Stripe's end but our system shows the transaction as failed.",
+        "component": "payments",
+        "severity": "critical",
+        "team": "payments"
+    },
+    {
+        "id": "TICK-047",
+        "title": "CSV export from analytics dashboard has no column headers",
+        "description": "Downloading CSV reports from the analytics section produces files without the header row. Column names are missing so users can't identify what each column represents.",
+        "component": "export",
+        "severity": "medium",
+        "team": "data"
+    },
+    {
+        "id": "TICK-048",
+        "title": "Google SSO authentication entering infinite redirect cycle",
+        "description": "Users authenticating via Google SSO encounter an infinite redirect between our callback URL and Google's auth server. Session cookies appear to not be set correctly.",
+        "component": "auth",
+        "severity": "high",
+        "team": "platform"
+    },
+    {
+        "id": "TICK-049",
+        "title": "Stored XSS in user bio allows JavaScript execution",
+        "description": "The user profile biography field does not sanitize HTML input. Malicious users can inject script tags that execute when anyone views the profile page.",
+        "component": "security",
+        "severity": "critical",
+        "team": "security"
+    },
+    {
+        "id": "TICK-050",
+        "title": "Feature request: Add keyboard shortcuts for dashboard navigation",
+        "description": "Users have requested keyboard shortcuts to navigate between dashboard sections without using the mouse. Common shortcuts like Ctrl+1 through Ctrl+5 for main sections.",
+        "component": "dashboard",
+        "severity": "low",
+        "team": "frontend"
+    }
+]
