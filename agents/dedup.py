@@ -4,7 +4,7 @@ import chromadb
 from schema.state import TriageState
 from schema.ticket import DedupResult
 
-SIMILARITY_THRESHOLD = 0.82  # Tuned via scripts/tune_threshold.py
+SIMILARITY_THRESHOLD = 0.95  # High threshold — only exact duplicates blocked
 
 _DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 

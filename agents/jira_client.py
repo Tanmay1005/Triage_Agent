@@ -4,14 +4,14 @@ import requests
 from dotenv import load_dotenv
 from schema.ticket import JiraCreateResult
 
-load_dotenv()
+load_dotenv(override=True)
 
 
 def create_jira_ticket(payload: dict) -> JiraCreateResult:
     """Create a ticket in Jira Cloud and return the ticket URL."""
-    jira_url = os.getenv("JIRA_URL")
-    email = os.getenv("JIRA_EMAIL")
-    token = os.getenv("JIRA_API_TOKEN")
+    jira_url = os.getenv("JIRA_URL", "").strip()
+    email = os.getenv("JIRA_EMAIL", "").strip()
+    token = os.getenv("JIRA_API_TOKEN", "").strip()
 
     if not all([jira_url, email, token]):
         return JiraCreateResult(

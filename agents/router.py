@@ -51,6 +51,17 @@ def router_agent(state: TriageState) -> dict:
 
     # Build Jira API v3 compatible payload
     project_key = os.getenv("JIRA_PROJECT_KEY", "ENG")
+
+    # Build description with metadata included
+    desc_parts = [parsed.description]
+    if parsed.component:
+        desc_parts.append(f"Component: {parsed.component}")
+    desc_parts.append(f"Type: {labeled.issue_type.value}")
+    desc_parts.append(f"Severity: {labeled.severity.value}")
+    desc_parts.append(f"Priority: {labeled.priority.value}")
+    desc_parts.append(f"Team: {best_team}")
+    full_description = "\n\n".join(desc_parts)
+
     jira = JiraPayload(
         fields={
             "project": {"key": project_key},
@@ -61,15 +72,12 @@ def router_agent(state: TriageState) -> dict:
                 "content": [
                     {
                         "type": "paragraph",
-                        "content": [{"type": "text", "text": parsed.description}],
+                        "content": [{"type": "text", "text": full_description}],
                     }
                 ],
             },
-            "issuetype": {"name": labeled.issue_type.value.replace("_", " ").title()},
-            "priority": {"name": labeled.priority.value},
+            "issuetype": {"name": "Task"},
             "labels": labeled.labels,
-            "assignee": {"accountId": team_info["lead"]},
-            "components": [{"name": parsed.component}] if parsed.component else [],
         }
     )
 
